@@ -264,6 +264,16 @@ body {
     transform: none; /* Remove any hover or click effect */
 }
 
+/* Remove the bullet points (dots) from unordered lists */
+.pet-details ul {
+    list-style-type: none; /* Removes the default bullet points */
+    padding-left: 0; /* Optional: removes extra space on the left side */
+}
+
+.pet-details li {
+    margin-bottom: 5px; /* Optional: adds space between list items */
+}
+
 
 /* Responsive Styles */
 @media screen and (max-width: 600px) {
