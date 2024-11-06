@@ -157,7 +157,8 @@ body {
 }
 
 .inventory-item img {
-    max-width: 100%;
+    max-width: 100%;  /* Makes the image responsive */
+    height: auto;     /* Maintains the aspect ratio */
     border-radius: 5px;
 }
 
@@ -237,4 +238,50 @@ body {
 
 .button:hover {
     background-color: #a6e5ff;
+}
+
+/* Mobile Support - Media Queries */
+@media (max-width: 768px) {
+    /* Reduce the size of the images */
+    .inventory-item img {
+        width: 100%;   /* Make images take up full width of the container */
+        height: auto;  /* Ensure aspect ratio is preserved */
+    }
+
+    /* Adjust inventory layout on mobile */
+    .inventory {
+        grid-template-columns: 1fr 1fr; /* Two columns on small screens */
+    }
+
+    /* Countdown text size */
+    .countdown-text {
+        font-size: 1.2em; /* Slightly smaller on smaller screens */
+    }
+
+    /* Info Panel text size */
+    .pet-details h3 {
+        font-size: 0.9em; /* Adjust font size for smaller screens */
+    }
+
+    /* Adjust the button size */
+    .button {
+        font-size: 0.8em; /* Smaller button text */
+        padding: 4px 8px; /* Reduced padding */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Even more mobile-specific adjustments */
+    .inventory {
+        grid-template-columns: 1fr; /* One column layout for very small screens */
+    }
+
+    .countdown-text {
+        font-size: 1.1em; /* Adjust countdown text size */
+    }
+
+    .button {
+        font-size: 0.7em; /* Smaller button text for very small screens */
+        padding: 4px 6px; /* Reduced button padding */
+    }
 }
