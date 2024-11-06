@@ -6,6 +6,7 @@ body {
     justify-content: center;
     padding: 20px; /* Add padding to prevent touching edges */
     margin: 0;
+    box-sizing: border-box;
 }
 
 /* Sheet Wrapper */
@@ -157,9 +158,9 @@ body {
 }
 
 .inventory-item img {
-    max-width: 100%;  /* Makes the image responsive */
-    height: auto;     /* Maintains the aspect ratio */
+    max-width: 100%;
     border-radius: 5px;
+    height: auto; /* Prevents images from overflowing */
 }
 
 .count {
@@ -223,65 +224,93 @@ body {
     color: #0e6b8f;
 }
 
-/* Button */
+/* Button Styles */
 .button {
-    background-color: #d4f0ff;
-    border: 2px solid #0096d6;
-    border-radius: 8px;
-    padding: 6px 12px;
-    color: #0096d6;
-    font-weight: bold;
-    font-size: 0.9em;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    background-color: #d4f0ff; /* Light blue background */
+    border: 2px solid #0096d6; /* Dark blue border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 12px 20px; /* Spacing around text */
+    color: #0096d6; /* Blue text */
+    font-weight: bold; /* Make the text bold */
+    font-size: 1em; /* Consistent font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-align: center; /* Center text in button */
+    transition: all 0.3s ease; /* Smooth transition on hover */
+    display: inline-block; /* Make the button behave like an inline element */
+    margin: 10px 0; /* Margin between buttons */
 }
 
 .button:hover {
-    background-color: #a6e5ff;
+    background-color: #a6e5ff; /* Light blue when hovered */
+    border-color: #3cb0fc; /* Change border color on hover */
+    color: #fff; /* White text on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
 }
 
-/* Mobile Support - Media Queries */
-@media (max-width: 768px) {
-    /* Reduce the size of the images */
+/* Active Button (on click) */
+.button:active {
+    background-color: #0096d6; /* Darker blue on click */
+    border-color: #005d8f; /* Darker border */
+    color: #fff; /* White text on click */
+    transform: translateY(2px); /* Slightly push button down on click */
+}
+
+/* Button Disabled */
+.button:disabled {
+    background-color: #e0e0e0; /* Gray background when disabled */
+    border-color: #b0b0b0; /* Gray border */
+    color: #808080; /* Gray text */
+    cursor: not-allowed; /* Change cursor to not-allowed */
+    transform: none; /* Remove any hover or click effect */
+}
+
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+    .inventory {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .inventory-item {
+        padding: 10px;
+    }
+
     .inventory-item img {
-        width: 100%;   /* Make images take up full width of the container */
-        height: auto;  /* Ensure aspect ratio is preserved */
+        max-width: 100%;
+        height: auto;
     }
 
-    /* Adjust inventory layout on mobile */
-    .inventory {
-        grid-template-columns: 1fr 1fr; /* Two columns on small screens */
+    .countdown-box {
+        padding: 15px;
     }
 
-    /* Countdown text size */
-    .countdown-text {
-        font-size: 1.2em; /* Slightly smaller on smaller screens */
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    /* Info Panel text size */
+    .icon-bar .icon {
+        font-size: 1.5em;
+    }
+
+    .search-bar input {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .button {
+        padding: 8px 16px;
+    }
+
+    .info-panel {
+        padding: 15px;
+    }
+
+    .pet-name {
+        font-size: 1.1em;
+    }
+
     .pet-details h3 {
-        font-size: 0.9em; /* Adjust font size for smaller screens */
-    }
-
-    /* Adjust the button size */
-    .button {
-        font-size: 0.8em; /* Smaller button text */
-        padding: 4px 8px; /* Reduced padding */
-    }
-}
-
-@media (max-width: 480px) {
-    /* Even more mobile-specific adjustments */
-    .inventory {
-        grid-template-columns: 1fr; /* One column layout for very small screens */
-    }
-
-    .countdown-text {
-        font-size: 1.1em; /* Adjust countdown text size */
-    }
-
-    .button {
-        font-size: 0.7em; /* Smaller button text for very small screens */
-        padding: 4px 6px; /* Reduced button padding */
+        font-size: 0.9em;
     }
 }
