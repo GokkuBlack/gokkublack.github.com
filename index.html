@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Simulator 2 - Anniversary Countdown</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // Countdown script to the event date
+    function updateCountdown() {
+      const targetDate = new Date('2024-12-01T00:00:00Z'); // Set to December 1st, 2024, GMT
+      const now = new Date();
+      const diff = targetDate - now;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").textContent =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (diff > 0) {
+        setTimeout(updateCountdown, 1000);
+      } else {
+        document.getElementById("countdown").textContent = "The moment has arrived!";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", updateCountdown);
+  </script>
+</head>
+<body>
+    <div class="sheet-wrapper">
+      <div class="container">
+        <h1 class="stroked-text">Celebrating 5 Years of Pet Simulator 2!</h1>
+  
+        <!-- Message Box -->
+        <div class="message-box">
+          <p>Hello Preston! With Pet Simulator 2's fifth anniversary approaching on December 1st, we're eagerly hoping for that long-awaited update for the final world as part of the celebration! It would be incredible to see it released! Thank you for considering this request! :D [ HBPS2.com ]</p>
+        </div>
+  
+        <div class="top-bar">
+          <div class="icon-bar">
+            <span class="icon">🐱</span>
+            <span class="icon">📋</span>
+            <span class="icon">💱</span>
+            <span class="icon">⚙️</span>
+            <span class="icon">⭐</span>
+          </div>
+          <div class="search-bar">
+            <input type="text" placeholder="Search inventory">
+          </div>
+          <button class="close-button">X</button>
+        </div>
+  
+        <!-- Inventory Section -->
+        <div class="inventory">
+          <div class="inventory-item">
+            <img src="pet.png" alt="Pet Inventory">
+            <span class="count">750</span>
+          </div>
+          <div class="inventory-item">
+            <img src="pet.png" alt="Coins">
+            <span class="count">22,850</span>
+          </div>
+          <div class="inventory-item">
+            <img src="pet.png" alt="Diamonds">
+            <span class="count">250</span>
+          </div>
+        </div>
+  
+        <!-- Countdown Section -->
+        <div class="countdown-box">
+          <h2>Countdown to the 5th Anniversary of Pet Simulator 2</h2>
+          <p id="countdown" class="countdown-text">Calculating time remaining...</p>
+        </div>
+  
+        <!-- Info Panel -->
+        <div class="info-panel">
+          <h2 class="pet-name">What We're Hoping For</h2>
+          
+          <div class="pet-details">
+            <h3>Unreleased Samurai World/Update 5</h3>
+            <img class="png" src="2.png" alt="Samurai World Concept Art" />
+            <img class="png" src="3.png" alt="Samurai World Art" />
+            
+            <h3>Features We'd Love to See</h3>
+            <ul>
+              <li>AutoFarm Functionality</li>
+              <li>Auto-Pickup System</li>
+              <img class="png" src="1.png" alt="Example of automation" />
+
+              <li><em># These were once planned, but unfortunately not added to the game!</em></li>
+            </ul>
+            
+            <p>These are the key things we’re hoping for in the next update! Although we are a small community with just few dedicated players, it would mean the world to us if this update could come to life!</p>
+        
+            <a href="https://x.com/voxlisXD" target="_blank">
+                <button class="button">Our Twitter</button>
+              </a>  
+              <a href="https://reddit.com/r/petsimulator2" target="_blank">
+                <button class="button">Reddit</button>
+              </a>              
+        </div>
+      </div>
+    </div>
+  
+    <!-- Countdown Script -->
+    <script>
+      // Countdown script for the final countdown to the event
+      const countdownElement = document.getElementById('countdown');
+      const targetDate = new Date('December 1, 2024').getTime();
+  
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+  
+        if (distance < 0) {
+          countdownElement.innerHTML = "The moment has arrived!";
+          return;
+        }
+  
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+        countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }
+  
+      setInterval(updateCountdown, 1000);
+    </script>
+  </body>
+</html>
